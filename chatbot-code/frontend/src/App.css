@@ -1,0 +1,177 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #000506, #0a0331);
+}
+
+/* PAGE CENTER */
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CHAT CONTAINER */
+.chat-container {
+  width: 840px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(135deg, #0a4b5a, #06021c);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  z-index: 10; /* chat ALWAYS on top */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* HEADER */
+.header {
+  padding: 14px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  background: rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* CHAT BOX (IMPORTANT FIX HERE) */
+.chat-box {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;   /* 🔥 FIX: STACK MESSAGES */
+  gap: 8px;
+}
+
+/* MESSAGE BASE */
+.msg {
+  padding: 10px 12px;
+  border-radius: 16px;
+
+  max-width: 70%;
+  width: fit-content;
+
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+
+  animation: fadeUp 0.25s ease;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* USER MESSAGE (RIGHT SIDE) */
+.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #020812, #2563eb);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+/* BOT MESSAGE (LEFT SIDE) */
+.bot {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #030507, #25a6eb);
+  color: white;
+  border-bottom-left-radius: 4px;
+}
+
+/* INPUT AREA */
+.input-box {
+  display: flex;
+  padding: 10px;
+  background: rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* INPUT */
+input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+}
+
+/* BUTTON */
+button {
+  margin-left: 10px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: white;
+  cursor: pointer;
+}
+/* canvas background */ 
+canvas {
+  position: fixed !important; 
+  top: 0; 
+  left: 0; 
+  width: 100vw !important;
+  height: 100vh !important; 
+  z-index: 0 !important;
+}
+
+/* TYPING DOTS */
+.typing {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  align-self: flex-start;
+}
+
+.typing span {
+  width: 7px;
+  height: 7px;
+  background: white;
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+}
+
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+/* snow (optional background effect) */ 
+.snow-container { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh; 
+  overflow: hidden; 
+  z-index: 1; 
+  pointer-events: none; 
+} 
+.snowflake { 
+  position: absolute; 
+  top: -10px; 
+  color: white; 
+  font-size: 20px; 
+  opacity: 0.8; 
+  animation: fall linear infinite; 
+}
+/* ANIMATIONS */
+@keyframes blink {
+  0%, 100% { opacity: 0.2; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-3px); }
+}
+@keyframes fall { 
+  0% { transform: translateY(-10px); } 
+  100% { transform: translateY(110vh); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatIn { 
+  from { opacity: 0; transform: scale(0.95); } 
+  to { opacity: 1; transform: scale(1); } 
+}
