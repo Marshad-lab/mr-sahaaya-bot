@@ -10,3 +10,6 @@
     Install Ollama -> https://ollama.com/download
     ollama pull deepseek-r1:1.5b
 
+## 🎥 Demo Video
+
+[![Demo Video](https://github.com/Marshad-lab/mr-sahaaya-bot/releases/tag/v1.0)
