@@ -104,7 +104,7 @@ export default function App() {
             </div>
           ))}
 
-          {/* 🔥 CHATGPT STYLE TYPING DOTS */}
+          {/* CHATGPT STYLE TYPING DOTS */}
           {loading && (
             <div className="msg bot">
               <div className="typing">
